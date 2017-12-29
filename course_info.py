@@ -4,15 +4,15 @@ while True:
 		break
 	
 	with open("dict", "r") as Dict:
-		q = None
+		found = None
 		for course in Dict:
 			
 			Name = course.lower().split()[0:3]
 			name = Name[1] + " " + Name[2]
 			
 			if c.lower().strip() == name.lower().strip():
-				q = course
+				found = course
 				print(course)
 				break
-		if q is None:
+		if found is None:
 			print("Unable to find class")

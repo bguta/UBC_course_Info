@@ -70,8 +70,11 @@ def getClass(url):
 def getDict():
 	mainURL = "https://courses.students.ubc.ca/cs/main?"
 	mainLink = ["https://courses.students.ubc.ca/cs/main?pname=subjarea&tname=subjareas&req=0",""]
+	#the dept links
 	deptLinks = getLinks(mainLink)
+	#the class links
 	classLinks = getLinks(deptLinks)
+	#this gets the name,credits, and description
 	Dict = getClass(classLinks)
 	return Dict
 
