@@ -12,7 +12,9 @@ while True:
 			
 			if c.lower().strip() == name.lower().strip():
 				found = course
+				print()
 				print(course)
 				break
+			
 		if found is None:
 			print("Unable to find class")

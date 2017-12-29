@@ -58,8 +58,15 @@ def getClass(url):
 
 			name = reduce(lambda x,y: x + " " + str(y),title[0:2])
 
-			desciption = info[0].text
+			desciption = info[0].text.strip() 
 			creds = info[1].text
+
+			if(len(info) >= 3):
+				from functools import reduce
+				words = list(word.strip() for word in info[2].text.split())
+				if(len(words) >= 1):
+					preReqs = reduce(lambda x, y: x + " " + str(y),words)
+					desciption += " "+ preReqs
 
 			thisCourse ={"name" : name, "credits": creds, "desciption" : desciption}
 			all_courses.append(thisCourse)

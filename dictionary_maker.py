@@ -1,4 +1,4 @@
-from Course_scraper import getDict
+from course_scraper import getDict
 
 print("starting...")
 Dict = getDict()
@@ -10,3 +10,4 @@ def make():
 
 make()
 print("DONE")
+input()
