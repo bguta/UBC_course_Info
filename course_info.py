@@ -1,6 +1,6 @@
-import Course_scraper
+from Course_scraper import getDict
 
-Dict = Course_scraper.getDict()
+Dict = getDict()
 
 while True:
 	wait = input("Which course would you like to look up? (Enter x to exit):")

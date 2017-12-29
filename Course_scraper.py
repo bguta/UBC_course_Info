@@ -21,6 +21,10 @@ def getLinks(url):
 			s = bs(page.content,"html.parser")
 
 			#get all the links
+			inter = s.findAll("div",{"class":"content expand"})
+			if(len(inter) < 1):
+				continue
+
 			links = s.findAll("div",{"class":"content expand"})[0].table.tbody.findAll('a')
 
 			#insert the links into a list
@@ -52,7 +56,7 @@ def getClass(url):
 
 			from functools import reduce
 
-			name = reduce(lambda x,y: x+str(y),title[0:2])
+			name = reduce(lambda x,y: x + " " + str(y),title[0:2])
 
 			desciption = info[0].text
 			creds = info[1].text
@@ -62,12 +66,13 @@ def getClass(url):
 
 		return all_courses
 
+
 def getDict():
 	mainURL = "https://courses.students.ubc.ca/cs/main?"
 	mainLink = ["https://courses.students.ubc.ca/cs/main?pname=subjarea&tname=subjareas&req=0",""]
 	deptLinks = getLinks(mainLink)
 	classLinks = getLinks(deptLinks)
-	Dict = getDict(classLinks)
+	Dict = getClass(classLinks)
 	return Dict
 
     
