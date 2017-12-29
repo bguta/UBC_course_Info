@@ -1,8 +1,12 @@
 from Course_scraper import getDict
 
+print("starting...")
 Dict = getDict()
 
 def make():
-	with open("dict",w) as file:
+	with open("dict","w", encoding='utf-8') as file:
 		for course in Dict:
-			file.write("name: "+ course["name"].strip() + " credits: " + course["creds"].strip() + " desciption: " + course["desciption"].strip())
+			file.write("Name: "+ str(course["name"]).strip() + " " + str(course["credits"]).strip() + " Desciption: " + str(course["desciption"]).strip() + "\n")
+
+make()
+print("DONE")
